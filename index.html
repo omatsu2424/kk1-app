@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#203958" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>建設業経理士1級｜毎日の学習</title>
+  </head>
+  <body>
+    <header>
+      <span class="logo">経</span>
+      <div>
+        <small>毎日の積み重ねを、合格へ</small>
+        <h1>建設業経理士 1級</h1>
+      </div>
+    </header>
+    <div id="warning" role="alert" hidden></div>
+    <main id="app" aria-live="polite">問題を読み込み中…</main>
+    <nav aria-label="メインナビ">
+      <button data-nav="home">⌂ ホーム</button
+      ><button data-nav="progress">▤ 進捗</button
+      ><button data-nav="settings">⚙ 設定</button>
+    </nav>
+    <button id="update" hidden>新しい版があります（タップで更新）</button>
+    <dialog id="dialog"></dialog>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

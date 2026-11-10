@@ -1,0 +1,458 @@
+:root {
+  --font: 17px;
+  --bg: #f2f4f7;
+  --panel: #fff;
+  --ink: #23364b;
+  --muted: #5d6e80;
+  --line: #d8e0e8;
+  --accent: #203958;
+  --soft: #e9eff6;
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  --bg: #111c29;
+  --panel: #1d2b3d;
+  --ink: #edf2f8;
+  --muted: #b4c2d3;
+  --line: #425267;
+  --accent: #a6c9f0;
+  --soft: #293b51;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] {
+    --bg: #111c29;
+    --panel: #1d2b3d;
+    --ink: #edf2f8;
+    --muted: #b4c2d3;
+    --line: #425267;
+    --accent: #a6c9f0;
+    --soft: #293b51;
+    color-scheme: dark;
+  }
+}
+* {
+  box-sizing: border-box;
+  min-width: 0;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    var(--font)/1.65 "Yu Gothic",
+    "Meiryo",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 660px;
+  margin: auto;
+  padding: 24px 20px 16px;
+  padding-top: max(24px, env(safe-area-inset-top));
+}
+h1 {
+  font-size: 1.18rem;
+  margin: 0;
+}
+h2 {
+  font-size: 1.4rem;
+  margin: 0 0 16px;
+}
+h3 {
+  font-size: 1rem;
+  margin: 20px 0 10px;
+}
+small,
+.muted {
+  color: var(--muted);
+  font-size: 0.8em;
+}
+.logo {
+  background: #203958;
+  color: white;
+  border-radius: 12px;
+  padding: 5px 13px;
+  font-size: 1.5rem;
+}
+main {
+  max-width: 660px;
+  margin: auto;
+  padding: 12px 18px calc(100px + env(safe-area-inset-bottom));
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  max-width: 100%;
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: var(--ink);
+  background: var(--panel);
+}
+button:hover {
+  filter: brightness(0.96);
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #8bb5dc;
+  outline-offset: 2px;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+.primary {
+  background: #203958;
+  color: white;
+  border-color: #203958;
+  min-height: 56px;
+}
+.wide {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 12px 0;
+}
+.hero {
+  background: #203958;
+  color: #fff;
+  padding: 24px;
+  border-radius: 18px;
+}
+.hero small {
+  color: #cfdeed;
+}
+.big {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.stats .card {
+  margin: 0;
+}
+.stats strong {
+  display: block;
+  font-size: 1.4rem;
+}
+.actions {
+  margin-top: 28px;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip {
+  display: inline-block;
+  background: var(--soft);
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-size: 0.8em;
+}
+.text {
+  white-space: pre-wrap;
+}
+.question {
+  font-size: 1.08em;
+  margin: 20px 0;
+}
+.reveal {
+  text-align: left;
+  width: 100%;
+  min-height: 190px;
+}
+.grades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 24px;
+}
+.grades button {
+  min-height: 60px;
+  padding: 8px 3px;
+  font-size: 0.82em;
+  font-weight: 700;
+}
+.ng {
+  background: #fce8e7;
+  color: #8f2927;
+}
+.unsure {
+  background: #fff1c7;
+  color: #785715;
+}
+.ok {
+  background: #e0f2e8;
+  color: #20613f;
+}
+.correct {
+  border: 3px solid #33835b !important;
+}
+.incorrect {
+  border: 3px solid #b74640 !important;
+}
+.choice {
+  text-align: left;
+  width: 100%;
+  margin: 6px 0;
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  z-index: 5;
+}
+nav button {
+  width: 33%;
+  max-width: 210px;
+  border: 0;
+  background: transparent;
+}
+nav button[aria-current="page"] {
+  background: var(--soft);
+  font-weight: 700;
+}
+label {
+  display: block;
+  margin: 12px 0;
+}
+input:not([type="checkbox"]),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+}
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+label.check {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 3px 0;
+}
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 16px 0;
+  padding: 12px;
+}
+legend {
+  font-weight: 700;
+}
+dialog {
+  border: 0;
+  border-radius: 18px;
+  padding: 22px;
+  width: calc(100% - 36px);
+  max-width: 460px;
+  background: var(--panel);
+  color: var(--ink);
+  max-height: 85vh;
+  overflow: auto;
+}
+dialog::backdrop {
+  background: #101d2c99;
+}
+.banner,
+#warning {
+  background: #fff0c8;
+  color: #6a4c12;
+  padding: 12px;
+  border-radius: 10px;
+  width: 100%;
+  margin: 12px 0;
+}
+.danger {
+  color: #b63434;
+}
+.bar {
+  height: 9px;
+  background: var(--soft);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  background: #729ac2;
+}
+#update {
+  position: fixed;
+  bottom: 85px;
+  left: 5%;
+  width: 90%;
+  z-index: 6;
+  background: #203958;
+  color: #fff;
+}
+details {
+  margin: 12px 0;
+}
+summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 8px 0;
+}
+.share {
+  display: block;
+  font-size: 2.5rem;
+  text-align: center;
+}
+.empty {
+  text-align: center;
+  padding: 28px 12px;
+}
+a {
+  color: var(--accent);
+}
+[hidden] {
+  display: none !important;
+}
+
+/* 小型端末でもホームの主操作を見つけやすくする。 */
+header {
+  padding-top: max(16px, env(safe-area-inset-top));
+  padding-bottom: 10px;
+}
+.hero {
+  padding: 18px 20px;
+}
+.hero p {
+  margin: 8px 0 0;
+}
+.stats .card {
+  padding: 11px 16px;
+}
+.stats strong {
+  font-size: 1.25rem;
+}
+.actions {
+  margin-top: 18px;
+}
+/* 出題中は問題と操作に画面を使う。操作領域の実測値を下余白に反映する。 */
+body.quizzing header,
+body.quizzing nav {
+  display: none;
+}
+body.quizzing main {
+  padding-top: max(4px, env(safe-area-inset-top));
+  padding-bottom: calc(var(--quiz-controls-height, 0px) + 24px);
+}
+.quiz-strip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.quiz-strip strong {
+  flex: 0 0 auto;
+}
+.quiz-meta {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.quiz-icons {
+  display: flex;
+  flex: 0 0 auto;
+}
+.quiz-icons button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 20px;
+  background: transparent;
+  border: 0;
+}
+.quiz-icons button[aria-pressed="true"] {
+  background: var(--soft);
+}
+.quiz-controls {
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 660px;
+  margin: auto;
+  padding: 8px 18px calc(8px + env(safe-area-inset-bottom));
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+.quiz-controls .wide {
+  margin: 4px 0;
+}
+.quiz-controls .grades {
+  margin: 0;
+}
+body.quizzing #update {
+  bottom: calc(var(--quiz-controls-height, 0px) + 8px);
+}
+.quiz-meta {
+  display: flex;
+  gap: 4px;
+}
+.quiz-subject {
+  flex: 0 1 auto;
+  max-width: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.quiz-topic {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.quiz-difficulty {
+  flex: 0 0 auto;
+}
